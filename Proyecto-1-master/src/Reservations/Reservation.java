@@ -1,6 +1,7 @@
 package Reservations;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,27 +23,25 @@ public class Reservation {
     private String driverLicenseExpDate;
     private String LicenseImageURL;
     private int creditCardNumber;
-    private String creditCardName;
     private String creditCardExpDate;
     private String creditCardSecurityCode;
     //private int rentalDays;
 
-    public List<Object> driverLicense(int driverLicenseNumber, String driverLicenseExpCountry, String driverLicenseExpDate, String LicenseImageURL) {
-        List<Object> licenseInfo = new ArrayList<>();
-        licenseInfo.add(driverLicenseNumber);
-        licenseInfo.add(driverLicenseExpCountry);
-        licenseInfo.add(driverLicenseExpDate);
-        licenseInfo.add(LicenseImageURL);
+    public Map<String, Object> driverLicense(int driverLicenseNumber, String driverLicenseExpCountry, String driverLicenseExpDate, String licenseImageURL) {
+        Map<String, Object> licenseInfo = new HashMap<>();
+        licenseInfo.put("Número", driverLicenseNumber);
+        licenseInfo.put("País de expedición", driverLicenseExpCountry);
+        licenseInfo.put("Fecha de expedición", driverLicenseExpDate);
+        licenseInfo.put("Foto de licencia", licenseImageURL);
         return licenseInfo;
     }
 
     
-    public List<Object> creditCard(int creditCardNumber, String creditCardName, String creditCardExpDate, int creditCardSecurityCode) {
-        List<Object> creditCardInfo = new ArrayList<>();
-        creditCardInfo.add(creditCardNumber);
-        creditCardInfo.add(creditCardName);
-        creditCardInfo.add(creditCardExpDate);
-        creditCardInfo.add(creditCardSecurityCode);
+    public Map<String, Object> creditCard(int creditCardNumber, String creditCardExpDate, String creditCardSecurityCode) {
+        Map<String, Object> creditCardInfo = new HashMap<>();
+        creditCardInfo.put("Número de tarjeta", creditCardNumber);
+        creditCardInfo.put("Fecha de expiración", creditCardExpDate);
+        creditCardInfo.put("Código de seguridad", creditCardSecurityCode);
         return creditCardInfo;
     }
     
@@ -78,11 +77,11 @@ public class Reservation {
             deliveryPointSurcharge = 10.0f * rentalDays;
         }
 
-        if (additionalService.equals("si")) {
+        if (additionalService.equals("Sí")) {
             addServiceSurcharge = 15.0f * rentalDays;
         }
 
-        if (InsuranceService.equals("si")) {
+        if (InsuranceService.equals("Sí")) {
             insuranceServiceSurcharge = 20.0f * rentalDays;
         }
 
@@ -178,17 +177,13 @@ public class Reservation {
 		return creditCardNumber;
 	}
 
-	public String getCreditCardName() {
-		return creditCardName;
-	}
 
 	public String getCreditCardExpDate() {
 		return creditCardExpDate;
 	}
 
-	public String getCreditCardSecurityCode() {
-		return creditCardSecurityCode;
-	}
-    
- 
-}
+	public String getCreditCardSecurityCode(){
+		return creditCardSecurityCode;}
+
+	
+   }
