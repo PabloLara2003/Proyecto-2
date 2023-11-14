@@ -28,6 +28,7 @@ public class UserClientInterface {
         SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
 
+
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Interfaz de Cliente");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,6 +60,10 @@ public class UserClientInterface {
             public void actionPerformed(ActionEvent e) {
                 if (text.equals("Realizar Reserva")) {
                     openLicenseWindow(frame);
+                } else if (text.equals("Perfil")) {
+                    openProfileWindow(frame);
+                } else if (text.equals("Cancelar Reserva")) {
+                    openCancelConfirmationWindow(frame);
                 } else {
                     JOptionPane.showMessageDialog(null, "Has presionado el botón " + text);
                 }
@@ -66,6 +71,112 @@ public class UserClientInterface {
         });
         return button;
     }
+
+    private static void openCancelConfirmationWindow(JFrame parentFrame) {
+        JFrame cancelFrame = new JFrame("Confirmación de Cancelación");
+        cancelFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JPanel cancelPanel = new JPanel();
+        cancelPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
+        cancelPanel.setLayout(new GridLayout(3, 1, 10, 10));
+
+        JLabel lblConfirmation = new JLabel("¿Desea cancelar la reservación hecha con nosotros?");
+        JButton btnYes = new JButton("Sí");
+        JButton btnNo = new JButton("No");
+
+        btnYes.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cancelFrame.dispose();  // Cierra la ventana de confirmación
+                openCancellationSuccessWindow(parentFrame);  // Abre la ventana de éxito de cancelación
+            }
+        });
+
+        btnNo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cancelFrame.dispose();  // Cierra la ventana de confirmación
+            }
+        });
+
+        cancelPanel.add(lblConfirmation);
+        cancelPanel.add(btnYes);
+        cancelPanel.add(btnNo);
+
+        cancelFrame.getContentPane().add(cancelPanel, BorderLayout.CENTER);
+        cancelFrame.setSize(400, 150);
+        cancelFrame.setLocationRelativeTo(parentFrame);
+        cancelFrame.setVisible(true);
+    }
+
+    private static void openCancellationSuccessWindow(JFrame parentFrame) {
+        JFrame successFrame = new JFrame("Cancelación Exitosa");
+        successFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JPanel successPanel = new JPanel();
+        Color backgroundColor = new Color(66, 57, 91);
+        successPanel.setBackground(backgroundColor);
+        successPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
+        successPanel.setLayout(new GridLayout(3, 1, 10, 10));
+
+        JLabel lblMessage = new JLabel("<html>Se ha cancelado tu reserva. Recuerda que el dinero descontado de tu tarjeta de crédito será devuelto en los próximos 5 días hábiles. Gracias por pensar en nosotros, esperamos servirte en otra oportunidad.</html>");
+        lblMessage.setForeground(Color.WHITE);  // Establece el color del texto
+
+        JButton btnClose = new JButton("Cerrar");
+        btnClose.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                successFrame.dispose();  // Cierra la ventana de éxito de cancelación
+                parentFrame.setVisible(true);  // Muestra la ventana de interfaz de cliente
+            }
+        });
+
+        successPanel.add(lblMessage);
+        successPanel.add(btnClose);
+
+        successFrame.getContentPane().add(successPanel, BorderLayout.CENTER);
+        successFrame.setSize(500, 200);
+        successFrame.setLocationRelativeTo(parentFrame);
+        successFrame.setVisible(true);
+    }
+
+
+    private static void openProfileWindow(JFrame parentFrame) {
+        JFrame profileFrame = new JFrame("Perfil del Usuario");
+        profileFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        JPanel profilePanel = new JPanel();
+        profilePanel.setBorder(new EmptyBorder(20, 20, 20, 20));
+        profilePanel.setLayout(new GridLayout(7, 2, 10, 10));
+
+        String[] labels = {"Nombre:", "Fecha de Nacimiento:", "Teléfono:", "Nacionalidad:",
+                "Documento de Identidad:"};
+
+        // Inicializa la lista de textFields para el perfil
+        List<JTextField> profileTextFields = new ArrayList<>();
+
+        for (String label : labels) {
+            JLabel lbl = new JLabel(label);
+            JTextField textField = new JTextField();
+            profileTextFields.add(textField);  // Agrega cada textField a la lista
+            profilePanel.add(lbl);
+            profilePanel.add(textField);
+        }
+
+        JButton btnGuardar = new JButton("Guardar");
+        btnGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Aquí puedes guardar la información del perfil si es necesario
+                profileFrame.dispose();
+            }
+        });
+
+        profilePanel.add(btnGuardar);
+
+        profileFrame.getContentPane().add(profilePanel, BorderLayout.CENTER);
+        profileFrame.setSize(400, 300);
+        profileFrame.setLocationRelativeTo(parentFrame);
+        profileFrame.setVisible(true);
+    }
+
 
     private static void openLicenseWindow(JFrame parentFrame) {
         JFrame licenseFrame = new JFrame("Licencia");
@@ -292,12 +403,15 @@ public class UserClientInterface {
         creditCardInscribedFrame.setVisible(true);
     }
 
+
     private static void openReservationSuccessWindow(JFrame parentFrame) {
         JFrame successFrame = new JFrame("Reserva Exitosa");
         successFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JPanel successPanel = new JPanel();
         successPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
-        successPanel.setLayout(new GridLayout(3, 1, 10, 10));
+        Color backgroundColor = new Color(66, 57, 91);
+        successPanel.setBackground(backgroundColor);
+        successPanel.setLayout(new GridLayout(2, 1, 10, 10));  // Modificado a 2 filas
 
         // Llamamos a la función createReservation con los datos de las ventanas PickUp y Delivery
         Map<String, Object> reservationDetails = new Reservation().createReservation(
@@ -334,17 +448,11 @@ public class UserClientInterface {
         successPanel.add(btnGuardar);
 
         successFrame.getContentPane().add(successPanel, BorderLayout.CENTER);
-        successFrame.setSize(400, 300);
+        successFrame.setSize(400, 200);  // Modificado el tamaño de la ventana
         successFrame.setLocationRelativeTo(parentFrame);
         successFrame.setVisible(true);
     }
+
 }
-
-
-
-
-
-
-
 
 
