@@ -1,4 +1,4 @@
-package Ventanas;
+package Empleado;
 
 import java.awt.EventQueue;
 
