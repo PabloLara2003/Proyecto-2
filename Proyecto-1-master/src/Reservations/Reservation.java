@@ -182,8 +182,9 @@ public class Reservation {
 		return creditCardExpDate;
 	}
 
-	public String getCreditCardSecurityCode(){
-		return creditCardSecurityCode;}
-
+	public String getCreditCardSecurityCode() {
+		return creditCardSecurityCode;
+	}
+}
 	
-   }
+   
