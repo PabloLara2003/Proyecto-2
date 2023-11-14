@@ -1,4 +1,4 @@
-package Empleado;
+package Interfaces.Empleado;
 
 import java.awt.EventQueue;
 
@@ -33,7 +33,7 @@ public class Disponibilidad extends JFrame {
 	 */
 	public Disponibilidad() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 286, 355);
+		setBounds(100, 100, 286, 242);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -41,17 +41,13 @@ public class Disponibilidad extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton disponibilidada_C = new JButton("diponibilidad carro ");
-		disponibilidada_C.setBounds(63, 53, 151, 23);
-		contentPane.add(disponibilidada_C);
+		JButton btnNewButton = new JButton("diponibilidad carro ");
+		btnNewButton.setBounds(63, 53, 151, 23);
+		contentPane.add(btnNewButton);
 		
-		JButton Añadir_C = new JButton("Añadir Conductor ");
-		Añadir_C.setBounds(63, 113, 151, 23);
-		contentPane.add(Añadir_C);
-		
-		JButton Cerrar_S = new JButton("cerrar Sesión");
-		Cerrar_S.setBounds(80, 262, 114, 23);
-		contentPane.add(Cerrar_S);
+		JButton btnNewButton_1 = new JButton("Añadir Conductor ");
+		btnNewButton_1.setBounds(63, 113, 151, 23);
+		contentPane.add(btnNewButton_1);
 	}
 
 }

@@ -1,14 +1,14 @@
-package Empleado;
+package Interfaces.Empleado;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.Color;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
-public class Ingreso extends JFrame {
+public class Disponibilidad_2 extends JFrame {
 
 	private JPanel contentPane;
 
@@ -19,7 +19,7 @@ public class Ingreso extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Ingreso frame = new Ingreso();
+					Disponibilidad_2 frame = new Disponibilidad_2();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -31,26 +31,19 @@ public class Ingreso extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Ingreso() {
+	public Disponibilidad_2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 283, 355);
+		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(0, 0, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Cliente");
-		btnNewButton.setBounds(87, 58, 99, 23);
-		contentPane.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Empleado");
-		btnNewButton_1.setBounds(87, 104, 99, 23);
-		contentPane.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("Administrador");
-		btnNewButton_2.setBounds(87, 151, 99, 23);
-		contentPane.add(btnNewButton_2);
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1. carro_1", "2. carro_2", "3. carro_3", "4. carro_4", "5. carro_5"}));
+		comboBox.setToolTipText("");
+		comboBox.setBounds(97, 30, 102, 22);
+		contentPane.add(comboBox);
 	}
 }

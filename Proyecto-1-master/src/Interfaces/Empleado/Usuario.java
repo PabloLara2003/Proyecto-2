@@ -1,6 +1,5 @@
-package Empleado;
+package Interfaces.Empleado;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,7 +8,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import java.awt.Color;
-import javax.swing.JButton;
 
 public class Usuario extends JFrame {
 
@@ -38,7 +36,7 @@ public class Usuario extends JFrame {
 	 */
 	public Usuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 283, 355);
+		setBounds(100, 100, 329, 248);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -47,34 +45,27 @@ public class Usuario extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(125, 84, 96, 20);
+		textField.setBounds(126, 46, 96, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(125, 154, 96, 20);
+		textField_1.setBounds(126, 116, 96, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JTextPane Usuario = new JTextPane();
-		Usuario.setText("Usuario:");
-		Usuario.setForeground(Color.WHITE);
-		Usuario.setBackground(Color.BLUE);
-		Usuario.setBounds(53, 84, 49, 20);
-		contentPane.add(Usuario);
+		JTextPane txtpnUsuario = new JTextPane();
+		txtpnUsuario.setForeground(new Color(255, 255, 255));
+		txtpnUsuario.setBackground(new Color(0, 0, 255));
+		txtpnUsuario.setText("Usuario");
+		txtpnUsuario.setBounds(53, 46, 49, 20);
+		contentPane.add(txtpnUsuario);
 		
-		JTextPane Contrasena = new JTextPane();
-		Contrasena.setText("Contraseña:");
-		Contrasena.setForeground(Color.WHITE);
-		Contrasena.setBackground(Color.BLUE);
-		Contrasena.setBounds(52, 154, 63, 20);
-		contentPane.add(Contrasena);
-		
-		JTextPane IniciarSesion = new JTextPane();
-		IniciarSesion.setText("Iniciar Sesión");
-		IniciarSesion.setForeground(Color.WHITE);
-		IniciarSesion.setBackground(Color.BLUE);
-		IniciarSesion.setBounds(106, 22, 78, 20);
-		contentPane.add(IniciarSesion);
+		JTextPane txtpnContrasea = new JTextPane();
+		txtpnContrasea.setForeground(new Color(255, 255, 255));
+		txtpnContrasea.setBackground(new Color(0, 0, 255));
+		txtpnContrasea.setText("Contraseña");
+		txtpnContrasea.setBounds(53, 116, 63, 20);
+		contentPane.add(txtpnContrasea);
 	}
 }
