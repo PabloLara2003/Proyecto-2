@@ -62,6 +62,16 @@ public class Disponibilidad extends JFrame {
             }
         });
 
+        // Add ActionListener to the "disponibilidad_C" button
+        disponibilidad_C.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Move to the Disponibilidad_2 frame
+                Disponibilidad_2 disponibilidad2Frame = new Disponibilidad_2();
+                disponibilidad2Frame.setVisible(true);
+                dispose(); // Close the current frame
+            }
+        });
+
         // Add ActionListener to the "Añadir_C" button
         añadir_C.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -73,3 +83,4 @@ public class Disponibilidad extends JFrame {
         });
     }
 }
+
