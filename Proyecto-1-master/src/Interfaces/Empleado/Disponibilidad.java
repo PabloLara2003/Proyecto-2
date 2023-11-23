@@ -13,6 +13,9 @@ public class Disponibilidad extends JFrame {
 
     private JPanel contentPane;
 
+    /**
+     * Launch the application.
+     */
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -26,6 +29,9 @@ public class Disponibilidad extends JFrame {
         });
     }
 
+    /**
+     * Create the frame.
+     */
     public Disponibilidad() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 286, 355);
@@ -56,22 +62,12 @@ public class Disponibilidad extends JFrame {
             }
         });
 
-        // Add ActionListener to the "disponibilidad carro" button
-        disponibilidad_C.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Move to the Disponibilidad_2 frame
-                Disponibilidad_2 disponibilidad2Frame = new Disponibilidad_2();
-                disponibilidad2Frame.setVisible(true);
-                dispose(); // Close the current frame
-            }
-        });
-
-        // Add ActionListener to the "Añadir Conductor" button
+        // Add ActionListener to the "Añadir_C" button
         añadir_C.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Move to the Disponibilidad_3 frame
-                Disponibilidad_3 disponibilidad3Frame = new Disponibilidad_3();
-                disponibilidad3Frame.setVisible(true);
+                // Move to the Licencia_1 frame
+                Licencia_1 licencia1Frame = new Licencia_1();
+                licencia1Frame.setVisible(true);
                 dispose(); // Close the current frame
             }
         });
