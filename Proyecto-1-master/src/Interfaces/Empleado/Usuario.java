@@ -84,25 +84,15 @@ public class Usuario extends JFrame {
         JButton btnNewButton = new JButton("Continuar");
         btnNewButton.setBounds(95, 228, 89, 23);
         contentPane.add(btnNewButton);
-        
-        JButton CrearUsuario = new JButton("Crear Usuario");
+
+		JButton CrearUsuario = new JButton("Crear Usuario");
         CrearUsuario.setBounds(80, 262, 115, 23);
         contentPane.add(CrearUsuario);
-
-        // Add ActionListener to the "CrearUsuario" button
-        CrearUsuario.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Move to the crear_Usuario frame
-                crear_Usuario crearUsuarioFrame = new crear_Usuario();
-                crearUsuarioFrame.setVisible(true);
-                dispose(); // Close the current frame
-            }
-        });
 
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (validarCredenciales()) {
-                    // Move to the Disponibilidad frame
+                    // Move to the Opciones frame
                     Disponibilidad opcionesFrame = new Disponibilidad();
                     opcionesFrame.setVisible(true);
                     dispose(); // Close the current frame

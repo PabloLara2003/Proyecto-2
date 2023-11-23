@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.border.EmptyBorder;
 
-public class crear_Usuario extends JFrame {
+public class Crear extends JFrame {
 
     private JPanel contentPane;
     private JTextField usuario_1;
@@ -28,7 +28,7 @@ public class crear_Usuario extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    crear_Usuario frame = new crear_Usuario();
+                    Crear frame = new Crear();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -40,7 +40,7 @@ public class crear_Usuario extends JFrame {
     /**
      * Create the frame.
      */
-    public crear_Usuario() {
+    public Crear() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 283, 355);
         contentPane = new JPanel();
