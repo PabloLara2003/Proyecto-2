@@ -12,7 +12,7 @@ import java.util.Map;
 
 import Reservations.Reservation;
 
-public class UserClientInterface {
+public class UserClientInterface extends JFrame {
     private static int licenseNumber;
     private static String licenseExpCountry;
     private static String licenseExpDate;
@@ -28,7 +28,6 @@ public class UserClientInterface {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> createAndShowGUI());
     }
-
 
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Interfaz de Cliente");
@@ -221,6 +220,7 @@ public class UserClientInterface {
         licenseFrame.setLocationRelativeTo(parentFrame);
         licenseFrame.setVisible(true);
     }
+
 
     private static void openCreditCardWindow(JFrame parentFrame) {
         JFrame creditCardFrame = new JFrame("Tarjeta de Crédito");
@@ -453,7 +453,5 @@ public class UserClientInterface {
         successFrame.setLocationRelativeTo(parentFrame);
         successFrame.setVisible(true);
     }
-
 }
-
 

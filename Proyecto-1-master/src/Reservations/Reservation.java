@@ -185,7 +185,4 @@ public class Reservation {
 	public String getCreditCardSecurityCode() {
 		return creditCardSecurityCode;
 	}
-    
- 
 }
-
