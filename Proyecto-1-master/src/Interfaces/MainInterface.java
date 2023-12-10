@@ -73,7 +73,7 @@ public class MainInterface extends JFrame {
         Cliente.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 // Create and show the "Cliente" JFrame
-                Interfaces.UserClientInterface clienteFrame = new Interfaces.UserClientInterface();
+                UserClientInterface clienteFrame = new UserClientInterface();
                 clienteFrame.setVisible(true);
 
                 // Close the current frame
